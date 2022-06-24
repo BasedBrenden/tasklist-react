@@ -1,0 +1,10 @@
+.taskDiv{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    
+    border: 1px solid black;
+    border-radius: 12px;
+    margin: 1rem;
+
+}
