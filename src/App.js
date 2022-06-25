@@ -5,7 +5,7 @@ import {useState} from'react';
 
 
 function App() {
-  const [first, setfirst] = useState([])
+  const [taskList, settaskList] = useState([])
 
   window.onload =()=>{
     renderAllTasks();
@@ -15,9 +15,9 @@ function App() {
     const taskName = document.querySelector('#inputField').value;
     let taskObj ={
       name: taskName,
-      id: first.length
+      id: taskList.length
     }
-    setfirst(newTask => [...newTask, taskObj])
+    settaskList(newTask => [...newTask, taskObj])
     localStorage.setItem(taskObj.id, JSON.stringify(taskObj));
   }
 
@@ -28,7 +28,7 @@ function App() {
     for( let i=0; i <localStorage.length; i++){
       tempTaskArr.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
-    setfirst([...tempTaskArr])
+    settaskList([...tempTaskArr])
   }
 
   return (
@@ -36,7 +36,7 @@ function App() {
       
       <input id="inputField" type="text" placeholder="Enter Task Here"></input>
       <button type="submit" onClick={addTask}>Submit</button>
-      <Overview tasks={first} renderAllTasks={renderAllTasks} />
+      <Overview tasks={taskList} renderAllTasks={renderAllTasks} />
     </div>
   );
 }
