@@ -18,7 +18,7 @@ function App() {
       id: first.length
     }
     setfirst(newTask => [...newTask, taskObj])
-    localStorage.setItem(taskObj.name, JSON.stringify(taskObj));
+    localStorage.setItem(taskObj.id, JSON.stringify(taskObj));
   }
 
 
